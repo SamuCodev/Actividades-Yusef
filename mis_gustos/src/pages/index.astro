@@ -1,0 +1,204 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ParallaxEffect from "../components/ParallaxEffect.astro"
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+
+	<style>
+		main{
+			display: flex;
+			min-height: 100vh;
+			padding: 2rem;
+			margin-bottom: 2rem;
+			gap: 2rem;
+		}
+
+		.hero__left{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.title{
+			font-size: clamp(3rem, 4vw, 4.5rem);
+			font-weight: 700;
+			max-width: 650px;
+		}
+
+		.title span{
+			color: hsla(240, 94%, 57%, 0.571);
+		}
+
+		.description{
+			max-width: 650px;
+			line-height: 1.6;
+			opacity: 0.9;
+			color: #ccc;
+		}
+
+		.cards__container{
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+
+		.card{
+			border: 2px solid hsl(240, 70%, 20%);
+			padding: 1rem;
+			border-radius: 1rem;
+			background: transparent;
+			transition: all 0.5s ease-in-out;
+		}
+
+		.card p{
+			font-weight: 600;
+			color: #ccc;
+		}
+		
+		.title__card{
+			display: flex;
+			align-items: center;
+			justify-content: left;
+			gap: 0.8rem;
+			font-size: 0.9rem;
+		}
+
+		.icon__card{
+			background-color: rgb(154, 154, 154);
+			padding: 10px;
+			border-radius: 12px;
+			font-size: 1.3rem;
+		}
+
+		.card:hover{
+			transform: translateY(6px);
+			box-shadow: 0 2px 0 0 hsla(240, 70%, 20%, 0.571);
+			border: 2px solid blue;
+		}
+
+		.hero__right{
+			flex: 1;
+			display: flex;	
+			align-items: center;
+			justify-content: center;
+			position: sticky;
+			top: 2rem;
+			align-self: flex-start;
+			height: calc(100vh - 4rem);
+		}
+
+		.img__lucky{
+			width: 100%;
+			max-width: 700px;
+			max-height: 80vh;
+			height: auto;
+			object-fit: contain;
+			display: block;
+			transition: transform 0.4s ease;
+		}
+
+		.img__lucky:hover{
+			transform: scale(1.11);
+		}
+
+		@media (max-width: 900px) {
+			main {
+				flex-direction: column;
+			}
+
+			.hero__right {
+				position: static;
+				height: auto;
+			}
+
+			.img__lucky {
+				max-width: 320px;
+			}
+		}
+
+	</style>
+	<main>
+		<section class="hero__left">
+			<h1 class="title">Un poco de <span>mi vida</span></h1>
+			<p class="description">Mis aficiones por fuera de la programacion y todo lo q eso conlleva son muy variadas, me gusta muchas actividades
+				y aqui hablo sobre varias de ellas, porque aunque la programacion es mi pasion siempre hay algo que me gustara hacer por fuera.
+			</p>
+			<section class="cards__container">
+				<div class="card" data-trail data-image="/img/Spotify.png">
+					<div class="title__card">
+						<span class="icon__card">
+							🎧
+						</span>
+						<h2>Musica</h2>
+					</div>
+					
+					<p>Soy una persona que le gusta hacer absolutamente todo con musica, descubrir nuevas canciones
+						y seguir conociendo el repertorio de mis artistas favoritos.
+					</p>
+				</div>
+				<div class="card" data-trail data-image="/img/Videojuegos.jpg">
+					<div class="title__card">
+						<span class="icon__card">
+							🎮
+						</span>
+						<h2>Videojuegos</h2>
+					</div>
+					<p>En mis tiempos libres me gusta mucho jugar videojuegos casuales o competitivos, aunque ya lo hago poco
+						es algo que siempre me ha gustado.
+					</p>
+				</div>
+				<div class="card" data-trail data-image="/img/basketball.jpeg">
+					<div class="title__card">
+						<span class="icon__card">
+							⛹️‍♂️
+						</span>
+						<h2>Baloncesto</h2>
+					</div>
+					<p>Mi deporte favorito, lo practico hace 3 años y aunque ahora mismo ya no juego seguido y lo tengo como hobby,
+						siempre ha sido una pasion muy grande.
+					</p>
+				</div>
+				<div class="card" data-trail data-image="/img/Pereza.jpeg">
+					<div class="title__card">
+						<span class="icon__card">
+							🦥
+						</span>
+						<h2>Hacer pereza</h2>
+					</div>
+					<p>A mi me gusta mucho poder hacer pereza en mis momentos y espacios libres, el hacer pereza sin preocupaciones
+						es una sensacion muy buena y relajante.
+					</p>
+				</div>
+				<div class="card" data-trail data-image="/img/amigos.jpeg">
+					<div class="title__card">
+						<span class="icon__card">
+							🫂
+						</span>
+						<h2>Pasar tiempo con amigos</h2>
+					</div>
+					<p>Me gusta pasar casi todo el tiempo posible en planes con ellos, siempre sera bueno por salir, parchar
+						y recochar con mi circulo de amigos.
+					</p>
+				</div>
+				<div class="card" data-trail data-image="/img/Pasar_tiempo.png">
+					<div class="title__card">
+						<span class="icon__card">🐾</span>
+						<h2>Jugar con mi perro</h2>
+					</div>
+					<p>Mi perro es muy alegre y jugueton, le gusta mucho moverse y hacer varias cosas, siempre q puedo saco un espacio
+						para estar con el.
+					</p>
+				</div>
+			</section>
+		</section>
+
+		<section class="hero__right">
+			<img src="./src/assets/img/Lucky_cartoon.png" alt="img__lucky" class="img__lucky" data-trail data-image="/img/Lucky.jpeg">
+		</section>
+	</main>
+	<ParallaxEffect/>
+</Layout>
